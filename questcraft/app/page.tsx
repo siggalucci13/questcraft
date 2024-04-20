@@ -38,6 +38,9 @@ const Page: React.FC = () => {
           <Link href="/character-creation">
             <button>Start Character Creation</button>
           </Link>
+          <Link href="/character-selection">
+            <button>Character Selection</button>
+          </Link>
         </div>
       </main>
 
