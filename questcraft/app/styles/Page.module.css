@@ -1,0 +1,58 @@
+/* styles/Page.module.css */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    background-color: #f0f0f0;
+    padding: 1rem;
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    margin-top: 2rem;
+  }
+  
+  .button button {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .footer {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+  }
