@@ -1,12 +1,11 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import styles from '../styles/CharacterCreation.module.css';
 
 const CharacterCreation: React.FC = () => {
-  const [characterDescription, setCharacterDescription] = useState('');
+  var [characterDescription, setCharacterDescription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -17,23 +16,26 @@ const CharacterCreation: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
+    const includeInprompt = 'Create a new animated character portrait that is used for a dungeon and dragon type game that is geared toward kids and teens. Here is the description of the character: ';
+     characterDescription = includeInprompt + characterDescription;
     try {
-      const response = await fetch('/api/generate-character', {
+      const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ characterDescription }),
+        body: JSON.stringify({ characterDescription}),
       });
 
       if (response.ok) {
-        router.push('/character-display');
+        const data = await response.json();
+        const imageUrl = data.imageUrl;
+        router.push(`/character-display?imageUrl=${encodeURIComponent(imageUrl)}&characterDescription=${characterDescription}`);
       } else {
-        console.error('Error generating character:', response.statusText);
+        console.error('Error generating image:', response.statusText);
       }
     } catch (error) {
-      console.error('Error generating character:', error);
+      console.error('Error generating image:', error);
     }
 
     setIsLoading(false);
