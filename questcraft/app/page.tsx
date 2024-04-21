@@ -35,7 +35,7 @@ const Page: React.FC = () => {
           Get ready to embark on an exciting journey filled with adventure and imagination!
         </p>
         <div className={styles.button}>
-          <Link href="/character-creation">
+          <Link href="/questions">
             <button>Start Character Creation</button>
           </Link>
         </div>
