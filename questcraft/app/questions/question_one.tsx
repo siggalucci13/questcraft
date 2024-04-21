@@ -30,7 +30,7 @@ const questions = [
     {
         id: 5, 
         text: "Would you rather be known for your bravery and honor or your cleverness and knowledge?",
-        options: ["Bravery and honor", "Cleverness and knowledge"]
+        options: ["Bravery and honor", "Cleverness"]
     },
     {
         id: 6, 

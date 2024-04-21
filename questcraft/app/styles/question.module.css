@@ -40,6 +40,8 @@
 
     font-family: 'Londrina Solid';
     font-size: 23px;
+    white-space: nowrap;
+    text-align: center;
 }
 
 
@@ -50,6 +52,9 @@
 
     font-family: 'Londrina Solid';
     font-size: 23px;
+
+    white-space: nowrap;
+    text-align: center;
 }
 
 .q_nav_pre {
@@ -100,9 +105,10 @@
     border-radius: 8px;
     padding: 20px;
     display: block;
-    width: 180px;
+    width: 200px;
     background: #bb1616;
     transition: border-color 0.3s ease;
+    text-align: center;
 }
 
 .card_input_element {
@@ -116,9 +122,10 @@
     border-radius: 8px;
     padding: 20px;
     display: block;
-    width: 180px;
+    width: 200px;
     background: #bb1616;
     transition: border-color 0.3s ease;
+    text-align: center;
 }
 
 .card_content h4 {
