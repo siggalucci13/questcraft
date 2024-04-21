@@ -11,7 +11,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const response = await openai.images.generate({
         prompt: characterDescription,
         n: 1,
-        size: '512x512',
+        size: '1024x1024',
+        model: "dall-e-3"
       });
 
       const imageUrl = response.data[0].url;

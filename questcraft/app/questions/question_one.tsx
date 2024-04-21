@@ -21,22 +21,22 @@ const questions = [
         id: 3, 
         text: "How would you like to defeat bad guys?",
         options: ["My cool magic", "My super strength"]
-    },
-    {
-        id: 4, 
-        text: "Would you rather support your friends or lead the way?",
-        options: ["Support", "Lead"]
-    },
-    {
-        id: 5, 
-        text: "Would you rather be known for your bravery and honor or your cleverness and knowledge?",
-        options: ["Bravery and honor", "Cleverness"]
-    },
-    {
-        id: 6, 
-        text: "Do you want to work as a lone wolf or as part of a team?",
-        options: ["Lone wolf", "Part of a team"]
     }
+    // {
+    //     id: 4, 
+    //     text: "Would you rather support your friends or lead the way?",
+    //     options: ["Support", "Lead"]
+    // },
+    // {
+    //     id: 5, 
+    //     text: "Would you rather be known for your bravery and honor or your cleverness and knowledge?",
+    //     options: ["Bravery and honor", "Cleverness"]
+    // },
+    // {
+    //     id: 6, 
+    //     text: "Do you want to work as a lone wolf or as part of a team?",
+    //     options: ["Lone wolf", "Part of a team"]
+    // }
 ]
 
 function createQuery(answerlist: { [x: string]: string; }){
