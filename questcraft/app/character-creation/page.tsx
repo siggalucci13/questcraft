@@ -19,7 +19,7 @@ const CharacterCreation: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    const includeInprompt = 'Create a new animated character headshot that is used for a dungeon and dragon type game that is geared toward kids and teens. Here is the description of the character: ';
+    const includeInprompt = 'Create a new animated character that is used for a dungeon and dragon type game that is geared toward kids and teens. Here is the description of the character: ';
      characterDescription = includeInprompt + characterDescription;
     try {
       const response = await fetch('/api/generate-image', {
@@ -34,7 +34,7 @@ const CharacterCreation: React.FC = () => {
         const data = await response.json();
         const imageUrl = data.imageUrl;
 
-        characterDescription = characterDescription + questions;
+        characterDescription = characterDescription + ' ' + questions;
         router.push(`/character-display?imageUrl=${encodeURIComponent(imageUrl)}&characterDescription=${characterDescription}`);
       } else {
         console.error('Error generating image:', response.statusText);
