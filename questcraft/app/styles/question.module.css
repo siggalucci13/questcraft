@@ -1,0 +1,149 @@
+
+.question_card {
+    width: 810px;
+    height: 650px;
+}
+
+.q_title {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    place-items: center;
+    column-fill: 100%;
+    justify-self: center;
+    align-self: center;
+
+    font-family: 'Londrina Solid';
+    font-size: 40px;
+}
+
+.q_question {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    justify-self: center;
+    align-self: center;
+
+    padding: 20px;
+    fill: #522424;
+    border: 5px solid #e99336;
+    background-color: #3a1d1d;
+    border-radius: 10%;
+
+    font-family: 'Londrina Solid';
+    font-size: 30px;
+}
+
+.q_option_left {
+    grid-column-start: 2;
+    grid-row-start: 3;
+    justify-self: center;
+
+    font-family: 'Londrina Solid';
+    font-size: 23px;
+}
+
+
+.q_option_right {
+    grid-column-start: 4;
+    grid-row-start: 3;
+    justify-self: center;
+
+    font-family: 'Londrina Solid';
+    font-size: 23px;
+}
+
+.q_nav_pre {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    justify-self: right;
+    width: 140px;
+
+
+    background-color: #7f2929;
+    color: rgb(249, 249, 249);
+    border-radius: 10%;
+
+    font-family: 'Londrina Solid';
+    font-size: 20px;
+}
+
+.q_nav_next {
+    grid-column-start: 5;
+    grid-row-start: 4;
+    justify-self: left;
+    width: 140px;
+
+    background-color: #a91a1a;
+    color: white;
+    border-radius: 10%;
+
+    font-family: 'Londrina Solid';
+    font-size: 20px;
+}
+
+.card_container {
+    display: grid;
+    flex-wrap: wrap;
+    width: 810px;
+    height: 650px;
+    gap: 10px;
+    padding: 20px;
+    justify-content: space-around;
+
+    grid-template-columns: 150px 50px auto 50px 150px;
+    grid-template-rows: 100px 250px 150px auto 100px; 
+}
+
+.card {
+    cursor: pointer;
+    border: 4px solid #953333;
+    border-radius: 8px;
+    padding: 20px;
+    display: block;
+    width: 180px;
+    background: #bb1616;
+    transition: border-color 0.3s ease;
+}
+
+.card_input_element {
+    display: none; /* Hide the radio button itself */
+    background-color: red;
+}
+
+.card_selected {
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    display: block;
+    width: 180px;
+    background: #bb1616;
+    transition: border-color 0.3s ease;
+}
+
+.card_content h4 {
+    margin: 0;
+    color: white;
+}
+
+.card_content p {
+    font-size: 14px;
+    color: #666;
+}
+
+
+.previous_button {
+    background-color: #522424;
+    color: black;
+    border-radius: 50%;
+}
+
+.next_button {
+background-color: #6f0e0e;
+color: white;
+border-radius: 50%;
+}
+
+.round {
+border-radius: 50%;
+}
