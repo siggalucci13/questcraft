@@ -21,7 +21,7 @@ const CharacterCreation: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    const includeInprompt = 'Create a new animated character profile picture that is used for a dungeon and dragon type game that is geared toward kids and teens. Here is the description of the character: ';
+    const includeInprompt = 'Generate an adorable animated character profile picture suitable for a kids and teens dungeon and dragon type game. The character should be whimsical, vibrant, and evoke a playful and friendly personality. Avoid using any text or words in the image. Focus on creating a charming character design reminiscent of Pixar animations. Here is a description: ';
     characterDescription = includeInprompt + characterDescription;
 
     try {
