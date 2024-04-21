@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
@@ -7,49 +7,11 @@ import styles from '../styles/CharacterDisplay.module.css';
 
 const CharacterDisplay: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [characterInfo, setCharacterInfo] = useState<{
-    name: string;
-    race: string;
-    class: string;
-    armorClass: number;
-    hitPoints: number;
-    speed: number;
-    strength: number;
-    dexterity: number;
-    intelligence: number;
-    wisdom: number;
-    charisma: number;
-    constitution: number;
-    level: number;
-    backgroundImage: string;
-  } | null>(null);
   const searchParams = useSearchParams();
   const imageUrl = searchParams?.get('imageUrl');
-  const characterDescription = searchParams?.get('characterDescription');
-
-  useEffect(() => {
-    const fetchCharacterInfo = async () => {
-      if (characterDescription) {
-        const response = await fetch('/api/generate-character-info', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ characterDescription }),
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setCharacterInfo(data);
-          console.log(characterInfo);
-        } else {
-          console.error('Error generating character info:', response.statusText);
-        }
-      }
-    };
-
-    fetchCharacterInfo();
-  }, [characterDescription]);
+  const characterName = searchParams?.get('characterName');
+  const characterInfoString = searchParams?.get('characterInfo');
+  const characterInfo = characterInfoString ? JSON.parse(decodeURIComponent(characterInfoString)) : null;
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
@@ -62,14 +24,8 @@ const CharacterDisplay: React.FC = () => {
         className={`${styles.card} ${isFlipped ? styles.flipped : ''}`}
         onClick={handleCardClick}
       >
-        <div
-          className={styles.front}
-          style={{
-            backgroundImage: `url(${characterInfo?.backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        ></div>
+      <div className={`${styles.front}`}>
+      </div>
         <div className={styles.back}>
           {characterInfo && (
             <div className={styles.characterInfo}>
@@ -97,20 +53,18 @@ const CharacterDisplay: React.FC = () => {
                     className={styles.image}
                   />
                 )}
-                <div className={styles.characterOverlay}>
-                  <p className={styles.characterName}>{characterInfo.name}</p>
+              </div>
+              <div className={styles.characterOverlay}>
+                  <p className={styles.characterName}>{characterName}</p>
                   <p className={styles.characterInfo}>
                     {characterInfo.race} {characterInfo.class}
                   </p>
                   <p className={styles.characterLevel}>Level {characterInfo.level}</p>
                 </div>
-              </div>
               <div className={styles.statsGrid}>
-                <div className={styles.statItem}>
-                  <p className={styles.statLabel}>Strength</p>
-                  <p className={`${styles.statValue} ${styles.strength}`}>
-                    +{characterInfo.strength}
-                  </p>
+                <div className={styles.strength}>
+                    <p className={styles.statLabel}>Strength</p>
+                    <p className={styles.statValue}>+{characterInfo.strength}</p>
                 </div>
                 <div className={styles.statItem}>
                   <p className={styles.statLabel}>Dexterity</p>
@@ -136,9 +90,9 @@ const CharacterDisplay: React.FC = () => {
                     +{characterInfo.wisdom}
                   </p>
                 </div>
-                <div className={styles.statItem}>
+                <div className={styles.charisma}>
                   <p className={styles.statLabel}>Charisma</p>
-                  <p className={`${styles.statValue} ${styles.charisma}`}>
+                  <p className={`${styles.statValue} `}>
                     +{characterInfo.charisma}
                   </p>
                 </div>

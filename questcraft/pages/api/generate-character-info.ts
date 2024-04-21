@@ -6,9 +6,10 @@ const openai = new OpenAI({
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    //console.log(req.body);
   if (req.method === 'POST') {
-    const { characterDescription } = req.body;
-
+    const characterDescription = req.body['description'];
+    console.log(characterDescription);
     try {
       // Generate character info
       const infoPrompt = `Given the following character description, please provide the character's name, race, class, level, armor class, hit points, speed, strength, dexterity, constitution, intelligence, wisdom, and charisma in a JSON format:
@@ -40,23 +41,17 @@ Character Description: ${characterDescription}
         temperature: 0.8,
       });
 
-      const characterInfo = JSON.parse(infoResponse.choices[0].text.trim());
-
-      // Generate background image
-      const imagePrompt = `Generate a background image of an environment that the character would live in. Here is the description of the character: ${characterDescription}`;
-
-      const imageResponse = await openai.images.generate({
-        prompt: imagePrompt,
-        n: 1,
-        size: '512x512',
-      });
-
-      const backgroundImage = imageResponse.data[0].url;
-
-      res.status(200).json({ ...characterInfo, backgroundImage });
+      try {
+        const characterInfo = JSON.parse(infoResponse.choices[0].text.trim());
+        res.status(200).json(characterInfo);
+      } catch (parseError) {
+        console.error('Error parsing character info:', parseError);
+        res.status(500).json({ error: 'Failed to parse character info' });
+      }
+      console.log('OpenAI API response:', infoResponse.choices[0].text.trim());
     } catch (error) {
-      console.error('Error generating character info and background image:', error);
-      res.status(500).json({ error: 'Failed to generate character info and background image' });
+      console.error('Error generating character info:', error);
+      res.status(500).json({ error: 'Failed to generate character info' });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });

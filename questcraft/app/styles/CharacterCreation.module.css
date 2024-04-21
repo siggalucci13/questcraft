@@ -60,3 +60,8 @@
     background-color: #ccc;
     cursor: not-allowed;
   }
+
+  .input{
+    color: black;
+    width: 300px;
+  }
