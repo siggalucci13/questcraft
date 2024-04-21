@@ -6,18 +6,19 @@
     min-height: 100vh;
     padding: 2rem;
     color: black;
-  }
-  
-  .card {
+    }
+    
+    .card {
     position: relative;
     width: 300px;
-    height: 400px;
+    height: 450px;
     perspective: 1000px;
     cursor: pointer;
-  }
-  
-  .front,
-  .back {
+    font-family: Arial, sans-serif;
+    }
+    
+    .front,
+    .back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -26,30 +27,123 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-  }
-  
-  .front {
-    background-color: #f8f8f8;
-    transform: rotateY(0deg);
+    }
+    
+    .back {
+    background-color: #362325;
+    transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 1rem;
-  }
-  
-  .back {
-    background-color: #fff;
+    box-sizing: border-box;
+    }
+    
+    .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+    
+    .image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    }
+    
+    .characterOverlay {
+    text-align: center;
+    margin-bottom: 1rem;
+    }
+    
+    .characterName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    }
+    
+    .characterInfo {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    }
+    
+    .characterLevel {
+    font-size: 0.8rem;
+    }
+    
+    .statsRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    }
+    
+    .statItem {
+    background-color: #502c2c;
+    color: #fff;
+    padding: 0.25rem;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.8rem;
+    width:50px;
+    }
+    
+    .statLabel {
+    font-size: 0.6rem;
+    font-weight: bold;
+    margin-bottom: 0.1rem;
+    }
+    
+    .statValue {
+    font-size: 0.9rem;
+    }
+    
+    .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+    width: 100%;
+    padding-top: 30px;
+    }
+    
+    /* .strength {
+    background-color: #ff4500;
+    }
+    
+    .dexterity {
+    background-color: #008000;
+    }
+    
+    .constitution {
+    background-color: #ff8c00;
+    }
+    
+    .intelligence {
+    background-color: #0000ff;
+    }
+    
+    .wisdom {
+    background-color: #800080;
+    }
+    
+    .charisma {
+    background-color: #ff69b4;
+    } */
+    
+    .flipped .front {
     transform: rotateY(180deg);
-  }
-  
-  .flipped .front {
-    transform: rotateY(180deg);
-  }
-  
-  .flipped .back {
+    }
+    
+    .flipped .back {
     transform: rotateY(0deg);
-  }
+    }
+    
+    
   
   .characterInfo {
     text-align: center;
@@ -76,8 +170,7 @@
   }
   
   .imageContainer {
-    width: 100%;
-    height: 100%;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,9 +186,10 @@
 
 .characterInfo {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #362325;
     padding: 1rem;
     border-radius: 10px;
+    width:300px;
   }
   
   /* ... remaining styles ... */
