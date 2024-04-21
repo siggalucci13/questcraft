@@ -11,7 +11,7 @@
     .card {
     position: relative;
     width: 300px;
-    height: 450px;
+    height: 500px;
     perspective: 1000px;
     cursor: pointer;
     font-family: Arial, sans-serif;
@@ -24,20 +24,25 @@
     height: 100%;
     backface-visibility: hidden;
     transition: transform 0.6s;
-    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     }
     
+    .front {
+    background-color: #f1e3c4;
+    border-radius: 10px;
+    }
+    
     .back {
-    background-color: #362325;
+    background-image: url('../../public/background_border.png');
+    background-size: cover;
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
     box-sizing: border-box;
+    border-radius: 0;
     }
     
     .imageContainer {
@@ -70,6 +75,9 @@
     .characterInfo {
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
+    text-align: center;
+    padding: 1rem;
+    width: 300px;
     }
     
     .characterLevel {
@@ -80,7 +88,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 20px;
     }
     
     .statItem {
@@ -90,7 +98,7 @@
     border-radius: 5px;
     text-align: center;
     font-size: 0.8rem;
-    width:50px;
+    width: 80px;
     }
     
     .statLabel {
@@ -111,30 +119,6 @@
     padding-top: 30px;
     }
     
-    /* .strength {
-    background-color: #ff4500;
-    }
-    
-    .dexterity {
-    background-color: #008000;
-    }
-    
-    .constitution {
-    background-color: #ff8c00;
-    }
-    
-    .intelligence {
-    background-color: #0000ff;
-    }
-    
-    .wisdom {
-    background-color: #800080;
-    }
-    
-    .charisma {
-    background-color: #ff69b4;
-    } */
-    
     .flipped .front {
     transform: rotateY(180deg);
     }
@@ -143,31 +127,25 @@
     transform: rotateY(0deg);
     }
     
-    
-  
-  .characterInfo {
-    text-align: center;
-  }
-  
-  .name {
+    .name {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-  }
-  
-  .info {
+    }
+    
+    .info {
     font-size: 1.2rem;
     line-height: 1.6;
-  }
-  
-  .info p {
+    }
+    
+    .info p {
     margin-bottom: 0.5rem;
-  }
-  
-  .info strong {
+    }
+    
+    .info strong {
     font-weight: bold;
     margin-right: 0.5rem;
-  }
+    }
   
   .imageContainer {
     height: 200px;
