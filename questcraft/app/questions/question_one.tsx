@@ -78,7 +78,7 @@ function Questionnaire() {
     const handleSubmit = () => {
       const combine_prompt = createQuery(answers)
       console.log('Submitted Answers:', combine_prompt);
-      router.push(`/character-display?questions=${encodeURIComponent(combine_prompt)}`)
+      router.push(`/character-creation?questions=${encodeURIComponent(combine_prompt)}`)
       // Here you might also post this data to a server or transition to a results page
     };
   
