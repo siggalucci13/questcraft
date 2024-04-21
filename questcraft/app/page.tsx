@@ -10,7 +10,7 @@ const Page: React.FC = () => {
     style={
       {
         backgroundImage: 'url("/images/questcraft.png")',
-
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
         
       }

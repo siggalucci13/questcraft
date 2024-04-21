@@ -18,6 +18,7 @@ const CharacterCreation: React.FC = () => {
     // State initialization logic goes here
   }, []);
 
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -74,10 +75,16 @@ const CharacterCreation: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Let's Create Your Character!</h1>
-      {!imageUrl ? (
-        <form onSubmit={handleSubmit} className={styles.form}>
+    <body className={styles.body}>
+
+    <header>
+        <link href='https://fonts.googleapis.com/css?family=Londrina Solid' rel='stylesheet'/>
+    </header>
+    <div className={styles.background}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Let's Create Your Character!</h1>
+        {!imageUrl ? (
+          <form onSubmit={handleSubmit} className={styles.form}>
           <label htmlFor="characterDescription" className={styles.label}>
             Describe your character:
           </label>
@@ -92,9 +99,9 @@ const CharacterCreation: React.FC = () => {
           <button type="submit" disabled={isLoading} className={styles.button}>
             {isLoading ? 'Generating...' : 'Create Character'}
           </button>
-        </form>
-      ) : (
-        <div className={styles.characterNameForm}>
+          </form>
+        ) : (
+          <div className={styles.characterNameForm}>
           <img src={imageUrl} alt="Generated Character" className={styles.characterImage} />
           <form onSubmit={handleNameSubmit} className={styles.form}>
             <label htmlFor="characterName" className={styles.label}>
@@ -112,10 +119,12 @@ const CharacterCreation: React.FC = () => {
             <button type="submit" className={styles.button}>
               Submit
             </button>
-          </form>
-        </div>
-      )}
+            </form>
+          </div>
+        )}
+      </div>
     </div>
+    </body>
   );
 };
 

@@ -19,11 +19,16 @@ const CharacterDisplay: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Your Generated Character</h1>
+
+    <header>
+        <link href='https://fonts.googleapis.com/css?family=Londrina Solid' rel='stylesheet'/>
+    </header>
+      <h1 style={{color:'black'}}>Your Generated Character</h1>
       <div
         className={`${styles.card} ${isFlipped ? styles.flipped : ''}`}
         onClick={handleCardClick}
       >
+        <div className={styles.glow}></div>
       <div className={`${styles.front}`}>
       </div>
         <div className={styles.back}>
