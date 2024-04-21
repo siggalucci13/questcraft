@@ -72,13 +72,13 @@
     margin-bottom: 0.25rem;
     }
     
-    .characterInfo {
+    /* .characterInfo {
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
     text-align: center;
     padding: 1rem;
     width: 300px;
-    }
+    } */
     
     .characterLevel {
     font-size: 0.8rem;
@@ -164,7 +164,6 @@
 
 .characterInfo {
     text-align: center;
-    background-color: #362325;
     padding: 1rem;
     border-radius: 10px;
     width:300px;
