@@ -43,9 +43,11 @@ function createQuery(answerlist){
     for(const key in answerlist){
         const index = key -1
         console.log(questions[index])
-        const new_string = "Question: " + questions[index].text + " Ans: " + answerlist[key] + ","
+        const new_string = "Question: " + questions[index].text + " Ans: " + answerlist[key] + "\n"
         output = output.concat(new_string)
     }
+    var prompt = "Based on the given questions and answers, choose from the following list of RPG classes, races, and backgrounds: Classes: (Warrior, Rogue, Wizard, Bard), Races: (Human, Elf, Dragonborn, Orc), Backgrounds: (Hero, Royal, Shady, Scholar)."
+    output.concat(prompt)
     console.log(output)
 }
 
