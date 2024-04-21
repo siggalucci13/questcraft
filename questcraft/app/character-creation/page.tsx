@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import styles from '../styles/CharacterCreation.module.css';
 
@@ -8,6 +8,9 @@ const CharacterCreation: React.FC = () => {
   var [characterDescription, setCharacterDescription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const questions = searchParams?.get('questions');
 
   useEffect(() => {
     // State initialization logic goes here
@@ -30,6 +33,8 @@ const CharacterCreation: React.FC = () => {
       if (response.ok) {
         const data = await response.json();
         const imageUrl = data.imageUrl;
+
+        characterDescription = characterDescription + questions;
         router.push(`/character-display?imageUrl=${encodeURIComponent(imageUrl)}&characterDescription=${characterDescription}`);
       } else {
         console.error('Error generating image:', response.statusText);
