@@ -17,7 +17,6 @@ const Page: React.FC = () => {
     }>
       <Head>
 
-        <link href='https://fonts.googleapis.com/css?family=Londrina Solid' rel='stylesheet'/>
       
         <title>QuestCraft</title>
         <meta name="description" content="Embark on an exciting adventure game!" />
@@ -32,6 +31,10 @@ const Page: React.FC = () => {
         <p className={styles.description}>
           Get ready to embark on an exciting journey filled with adventure and imagination!
         </p> */}
+        <header>
+        <link href='https://fonts.googleapis.com/css?family=Londrina Solid' rel='stylesheet'/>
+
+        </header>
         <div className={styles.button}>
           <Link href="/questions">
             <button className={styles.next_button}>Start Character Creation</button>
