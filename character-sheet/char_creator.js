@@ -74,3 +74,5 @@ function createSheet(characterName, className, race, background) {
     }
     return sheet;
 }
+
+console.log(createSheet("oat", "Wizard", "Orc", "Hero"))
